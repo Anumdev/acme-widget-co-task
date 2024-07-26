@@ -37,7 +37,7 @@ acme-widget-co-task
 
 1. Clone the repository:
     ```sh
-    git clone <repository-url>
+    git clone git@github.com:Anumdev/acme-widget-co-task.git
     cd acme-widget-co-task
     ```
 
