@@ -1,14 +1,25 @@
 <?php
+
 namespace AcmeWidgetCo;
 
-class DeliveryChargeRule {
-    public $minAmount;
-    public $maxAmount;
-    public $charge;
+class DeliveryChargeRule
+{
+    private float $threshold;
+    private float $charge;
 
-    public function __construct($minAmount, $maxAmount, $charge) {
-        $this->minAmount = $minAmount;
-        $this->maxAmount = $maxAmount;
+    public function __construct(float $threshold, float $charge)
+    {
+        $this->threshold = $threshold;
         $this->charge = $charge;
+    }
+
+    public function getThreshold(): float
+    {
+        return $this->threshold;
+    }
+
+    public function getCharge(): float
+    {
+        return $this->charge;
     }
 }

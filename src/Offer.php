@@ -1,27 +1,29 @@
 <?php
+
 namespace AcmeWidgetCo;
 
-class Offer {
-    public $productCode;
-    public $description;
-    public $apply;
+use AcmeWidgetCo\Interfaces\OfferStrategyInterface;
 
-    public function __construct($productCode, $description, $apply) {
+class Offer
+{
+    private string $productCode;
+    private string $description;
+    private OfferStrategyInterface $strategy;
+
+    public function __construct(string $productCode, string $description, OfferStrategyInterface $strategy)
+    {
         $this->productCode = $productCode;
         $this->description = $description;
-        $this->apply = $apply;
+        $this->strategy = $strategy;
     }
 
-    public function applyOffer($price, $count) {
-        $offerName = $this->apply;
-        return $this->$offerName($price, $count);
+    public function getProductCode(): string
+    {
+        return $this->productCode;
     }
 
-    public function buyOneGetSecondHalfPrice($price, $count) {
-        $discount = 0.0;
-        if ($count > 1) {
-            $discount = floor($count / 2) * round(($price / 2), 2);
-        }
-        return $discount;
+    public function applyOffer(float $price, int $count): float
+    {
+        return $this->strategy->applyOffer($price, $count);
     }
 }
