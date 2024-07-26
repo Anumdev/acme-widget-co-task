@@ -8,7 +8,7 @@ This project is a proof of concept for Acme Widget Co's new sales system. The sy
 ```
 acme-widget-co-task
 ├── src
-├───Interfaces
+│   ├───Interfaces
 │   │   │   OfferStrategyInterface.php # Interface for Offer Strategy implementation
 │   ├───Strategies
 │   │   │   BuyOneGetSecondHalfPriceStrategy.php # Price Strategy class implementation
